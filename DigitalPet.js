@@ -12,8 +12,9 @@ const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100) {
 DigitalPet.prototype.attack = function (defender) {
   if (this.hitpoints > 0) {
     this.hungry = true;
-    defender.hitpoints -= this.strength;
-    console.log(`${this.name} attacks ${defender.name}!`);
+    let damage = Math.floor((Math.random() * this.strength) + 1);
+    defender.hitpoints -= damage;
+    console.log(`${this.name} attacks ${defender.name} for ${damage} points!`);
   }
 };
 
