@@ -1,4 +1,5 @@
-const DigitalPet = function () {
+const DigitalPet = function (name = "Unnamed") {
+  this.name = name;
   this.hungry = false;
   this.sleepy = false;
   this.bored = true;
@@ -6,6 +7,7 @@ const DigitalPet = function () {
 };
 
 DigitalPet.prototype.stats = function () {
+  console.log(`Name: ${this.name}`);
   console.log(`Hungry: ${this.hungry}`);
   console.log(`Sleepy: ${this.sleepy}`);
   console.log(`Bored: ${this.bored}`);
