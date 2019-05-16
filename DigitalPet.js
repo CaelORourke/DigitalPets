@@ -11,7 +11,7 @@ DigitalPet.prototype.stats = function () {
   console.log(`Hungry:\t${this.hungry}`);
   console.log(`Sleepy:\t${this.sleepy}`);
   console.log(`Bored:\t${this.bored}`);
-  console.log(`Age:\t${this.age}`);
+  console.log(`Age:\t${this.age}\n`);
 };
 
 DigitalPet.prototype.feed = function () {
