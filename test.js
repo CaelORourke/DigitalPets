@@ -3,7 +3,7 @@ const DigitalPet = require("./DigitalPet");
 const cat = new DigitalPet("Mochi");
 const dog = new DigitalPet("Cho");
 
-console.log("\n");
+console.log();
 
 cat.stats();
 dog.stats();
@@ -15,4 +15,10 @@ cat.play();
 cat.feed();
 cat.sleep();
 
-console.log("\n");
+console.log("\n-------------\n");
+
+cat.attack(dog);
+dog.attack(cat);
+
+cat.stats();
+dog.stats();

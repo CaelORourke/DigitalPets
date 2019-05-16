@@ -51,4 +51,19 @@ DigitalPet.prototype.play = function () {
   }
 };
 
+DigitalPet.prototype.isAlive = function () {
+  if (this.hitpoints > 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+};
+
+DigitalPet.prototype.attack = function (defender) {
+  if (this.hitpoints > 0) {
+    defender.hitpoints -= this.strength;
+  }
+};
+
 module.exports = DigitalPet;
