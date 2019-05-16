@@ -15,6 +15,12 @@ DigitalPet.prototype.attack = function (defender) {
     let damage = Math.floor((Math.random() * this.strength) + 1);
     defender.hitpoints -= damage;
     console.log(`${this.name} attacks ${defender.name} for ${damage} points!`);
+
+    if (defender.hitpoints <= 0) {
+    console.log("\n-------------\n");
+    console.log(`${defender.name} has been defeated!\n`);
+    this.levelUp();
+    }
   }
 };
 
@@ -42,10 +48,17 @@ DigitalPet.prototype.isAlive = function () {
     return true;
   }
   else {
-    console.log("\n-------------\n");
-    console.log(`${this.name} has been defeated!\n`);
     return false;
   }
+};
+
+DigitalPet.prototype.levelUp = function () {
+  this.age += 1;
+  this.hitpoints += 25;
+  this.maxHitpoints += 25;
+  this.strength += 5;
+  console.log("\n-------------\n");
+  console.log(`${this.name} levels up!\n`);
 };
 
 DigitalPet.prototype.play = function () {
@@ -75,7 +88,7 @@ DigitalPet.prototype.stats = function () {
   console.log(`Age:\t${this.age}`);
   console.log(`Str:\t${this.strength}`);
   console.log(`Hp:\t${this.hitpoints}/${this.maxHitpoints}`);
-  console.log(`State:${this.bored ? "\tBored" : ""}${this.hungry ? "\tHungry" : ""}${this.sleepy ? "\tSleepy" : ""}\n`);
+  console.log(`State:${this.bored ? "\tBored" : ""}${this.hungry ? "\tHungry" : ""}${this.sleepy ? "\tSleepy" : ""}${this.hitpoints <= 0 ? "\tDefeated" : ""}\n`);
 };
 
 module.exports = DigitalPet;
