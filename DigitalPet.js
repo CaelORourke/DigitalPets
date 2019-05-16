@@ -41,6 +41,8 @@ DigitalPet.prototype.isAlive = function () {
     return true;
   }
   else {
+    console.log("\n-------------\n");
+    console.log(`${this.name} has been defeated!\n`);
     return false;
   }
 };
