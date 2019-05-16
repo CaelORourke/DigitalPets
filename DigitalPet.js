@@ -1,10 +1,11 @@
-const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100) {
+const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100, noise = "Hmm") {
   this.age = 0;
   this.bored = true;
   this.hitpoints = hitpoints;
   this.hungry = false;
   this.maxHitpoints = hitpoints;
   this.name = name;
+  this.noise = noise;
   this.sleepy = false;
   this.strength = strength;
 };
@@ -57,8 +58,13 @@ DigitalPet.prototype.levelUp = function () {
   this.hitpoints += 25;
   this.maxHitpoints += 25;
   this.strength += 5;
-  console.log("\n-------------\n");
-  console.log(`${this.name} levels up!\n`);
+  console.log("-------------\n");
+  console.log(`${this.name} levels up!`);
+  this.makeNoise();
+};
+
+DigitalPet.prototype.makeNoise = function () {
+  console.log(`${this.noise}!`);
 };
 
 DigitalPet.prototype.play = function () {

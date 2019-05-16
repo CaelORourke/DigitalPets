@@ -1,7 +1,7 @@
 const DigitalPet = require("./DigitalPet");
 
-const cat = new DigitalPet("Mochi");
-const dog = new DigitalPet("Cho");
+const cat = new DigitalPet("Mochi", 10, 100, "MEOW");
+const dog = new DigitalPet("Cho", 10, 100, "WOOF");
 
 console.log();
 
@@ -16,7 +16,7 @@ cat.feed();
 cat.sleep();
 
 while (cat.isAlive() && dog.isAlive()) {
-    console.log("\n-------------\n");
+    console.log("-------------\n");
 
     cat.attack(dog);
     dog.attack(cat);
