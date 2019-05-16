@@ -11,6 +11,7 @@ const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100) {
 
 DigitalPet.prototype.attack = function (defender) {
   if (this.hitpoints > 0) {
+    this.hungry = true;
     defender.hitpoints -= this.strength;
     console.log(`${this.name} attacks ${defender.name}!`);
   }
@@ -71,9 +72,7 @@ DigitalPet.prototype.stats = function () {
   console.log(`Age:\t${this.age}`);
   console.log(`Str:\t${this.strength}`);
   console.log(`Hp:\t${this.hitpoints}/${this.maxHitpoints}`);
-  console.log(`Hungry:\t${this.hungry}`);
-  console.log(`Sleepy:\t${this.sleepy}`);
-  console.log(`Bored:\t${this.bored}\n`);
+  console.log(`State:${this.bored ? "\tBored" : ""}${this.hungry ? "\tHungry" : ""}${this.sleepy ? "\tSleepy" : ""}\n`);
 };
 
 module.exports = DigitalPet;
