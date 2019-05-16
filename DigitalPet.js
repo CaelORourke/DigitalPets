@@ -6,6 +6,7 @@ const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100) {
   this.age = 0;
   this.strength = strength;
   this.hitpoints = hitpoints;
+  this.maxHitpoints = hitpoints;
 };
 
 DigitalPet.prototype.stats = function () {
@@ -15,13 +16,21 @@ DigitalPet.prototype.stats = function () {
   console.log(`Bored:\t${this.bored}`);
   console.log(`Age:\t${this.age}`);
   console.log(`Str:\t${this.strength}`);
-  console.log(`Hp:\t${this.hitpoints}\n`);
+  console.log(`Hp:\t${this.hitpoints}/${this.maxHitpoints}\n`);
 };
 
 DigitalPet.prototype.feed = function () {
   if (this.hungry === true) {
     this.hungry = false;
     this.sleepy = true;
+    if (this.hitpoints < this.maxHitpoints) {
+      if (this.hitpoints < this.maxHitpoints - 5) {
+        this.hitpoints += 5;
+      }
+      else {
+        this.hitpoints = this.maxHitpoints;
+      }
+    }
     console.log(`${this.name} says, "That was yummy!"`);
   }
   else {
