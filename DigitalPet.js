@@ -63,6 +63,7 @@ DigitalPet.prototype.isAlive = function () {
 DigitalPet.prototype.attack = function (defender) {
   if (this.hitpoints > 0) {
     defender.hitpoints -= this.strength;
+    console.log(`${this.name} attacks ${defender.name}!`);
   }
 };
 

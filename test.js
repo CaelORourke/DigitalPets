@@ -20,5 +20,7 @@ console.log("\n-------------\n");
 cat.attack(dog);
 dog.attack(cat);
 
+console.log("\n-------------\n");
+
 cat.stats();
 dog.stats();
