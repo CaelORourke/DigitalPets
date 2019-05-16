@@ -7,11 +7,11 @@ const DigitalPet = function (name = "Unnamed") {
 };
 
 DigitalPet.prototype.stats = function () {
-  console.log(`Name: ${this.name}`);
-  console.log(`Hungry: ${this.hungry}`);
-  console.log(`Sleepy: ${this.sleepy}`);
-  console.log(`Bored: ${this.bored}`);
-  console.log(`Age: ${this.age}`);
+  console.log(`Name:\t${this.name}`);
+  console.log(`Hungry:\t${this.hungry}`);
+  console.log(`Sleepy:\t${this.sleepy}`);
+  console.log(`Bored:\t${this.bored}`);
+  console.log(`Age:\t${this.age}`);
 };
 
 DigitalPet.prototype.feed = function () {
