@@ -1,9 +1,11 @@
-const DigitalPet = function (name = "Unnamed") {
+const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100) {
   this.name = name;
   this.hungry = false;
   this.sleepy = false;
   this.bored = true;
   this.age = 0;
+  this.strength = strength;
+  this.hitpoints = hitpoints;
 };
 
 DigitalPet.prototype.stats = function () {
@@ -11,7 +13,9 @@ DigitalPet.prototype.stats = function () {
   console.log(`Hungry:\t${this.hungry}`);
   console.log(`Sleepy:\t${this.sleepy}`);
   console.log(`Bored:\t${this.bored}`);
-  console.log(`Age:\t${this.age}\n`);
+  console.log(`Age:\t${this.age}`);
+  console.log(`Str:\t${this.strength}`);
+  console.log(`Hp:\t${this.hitpoints}\n`);
 };
 
 DigitalPet.prototype.feed = function () {
