@@ -18,10 +18,10 @@ DigitalPet.prototype.feed = function () {
   if (this.hungry === true) {
     this.hungry = false;
     this.sleepy = true;
-    console.log("That was yummy!");
+    console.log(`${this.name} says, "That was yummy!"`);
   }
   else {
-    console.log("No thanks, I'm full.");
+    console.log(`${this.name} says, "No thanks, I'm full."`);
   }
 };
 
@@ -29,10 +29,10 @@ DigitalPet.prototype.sleep = function () {
   if (this.sleepy === true) {
     this.sleepy = false;
     this.bored = true;
-    console.log("ZZzzZZZzzZZz~~");
+    console.log(`${this.name} says, "ZZzzZZZzzZZz~~"`);
   }
   else {
-    console.log("No way! I'm not tired!");
+    console.log(`${this.name} says, "No way! I'm not tired!"`);
   }
 };
 
@@ -40,10 +40,10 @@ DigitalPet.prototype.play = function () {
   if (this.bored === true) {
     this.bored = false;
     this.hungry = true;
-    console.log("Yay! Let's play!");
+    console.log(`${this.name} says, "Yay! Let's play!"`);
   }
   else {
-    console.log("Not right now. Maybe later?");
+    console.log(`${this.name} says, "Not right now. Maybe later?"`);
   }
 };
 
