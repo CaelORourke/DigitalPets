@@ -15,13 +15,17 @@ cat.play();
 cat.feed();
 cat.sleep();
 
+let turn = 0;
 while (cat.isAlive() && dog.isAlive()) {
+    turn += 1;
     console.log("-------------\n");
+    console.log(`TURN: ${turn}\n`);
 
     cat.attack(dog);
     dog.attack(cat);
 
-    console.log("\n-------------\n");
+    // console.log("\n-------------\n");
+    console.log();
 
     cat.stats();
     dog.stats();
