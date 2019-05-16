@@ -1,22 +1,19 @@
 const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100) {
-  this.name = name;
-  this.hungry = false;
-  this.sleepy = false;
-  this.bored = true;
   this.age = 0;
-  this.strength = strength;
+  this.bored = true;
   this.hitpoints = hitpoints;
+  this.hungry = false;
   this.maxHitpoints = hitpoints;
+  this.name = name;
+  this.sleepy = false;
+  this.strength = strength;
 };
 
-DigitalPet.prototype.stats = function () {
-  console.log(`Name:\t${this.name}`);
-  console.log(`Hungry:\t${this.hungry}`);
-  console.log(`Sleepy:\t${this.sleepy}`);
-  console.log(`Bored:\t${this.bored}`);
-  console.log(`Age:\t${this.age}`);
-  console.log(`Str:\t${this.strength}`);
-  console.log(`Hp:\t${this.hitpoints}/${this.maxHitpoints}\n`);
+DigitalPet.prototype.attack = function (defender) {
+  if (this.hitpoints > 0) {
+    defender.hitpoints -= this.strength;
+    console.log(`${this.name} attacks ${defender.name}!`);
+  }
 };
 
 DigitalPet.prototype.feed = function () {
@@ -38,14 +35,12 @@ DigitalPet.prototype.feed = function () {
   }
 };
 
-DigitalPet.prototype.sleep = function () {
-  if (this.sleepy === true) {
-    this.sleepy = false;
-    this.bored = true;
-    console.log(`${this.name} says, "ZZzzZZZzzZZz~~"`);
+DigitalPet.prototype.isAlive = function () {
+  if (this.hitpoints > 0) {
+    return true;
   }
   else {
-    console.log(`${this.name} says, "No way! I'm not tired!"`);
+    return false;
   }
 };
 
@@ -60,20 +55,25 @@ DigitalPet.prototype.play = function () {
   }
 };
 
-DigitalPet.prototype.isAlive = function () {
-  if (this.hitpoints > 0) {
-    return true;
+DigitalPet.prototype.sleep = function () {
+  if (this.sleepy === true) {
+    this.bored = true;
+    this.sleepy = false;
+    console.log(`${this.name} says, "ZZzzZZZzzZZz~~"`);
   }
   else {
-    return false;
+    console.log(`${this.name} says, "No way! I'm not tired!"`);
   }
 };
 
-DigitalPet.prototype.attack = function (defender) {
-  if (this.hitpoints > 0) {
-    defender.hitpoints -= this.strength;
-    console.log(`${this.name} attacks ${defender.name}!`);
-  }
+DigitalPet.prototype.stats = function () {
+  console.log(`Name:\t${this.name}`);
+  console.log(`Age:\t${this.age}`);
+  console.log(`Str:\t${this.strength}`);
+  console.log(`Hp:\t${this.hitpoints}/${this.maxHitpoints}`);
+  console.log(`Hungry:\t${this.hungry}`);
+  console.log(`Sleepy:\t${this.sleepy}`);
+  console.log(`Bored:\t${this.bored}\n`);
 };
 
 module.exports = DigitalPet;
