@@ -1,5 +1,6 @@
-const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100, noise = "Hmm") {
+const DigitalPet = function (name = "Unnamed", ac = 5, strength = 10, hitpoints = 100, noise = "Hmm") {
   this.age = 0;
+  this.armorClass = ac;
   this.bored = true;
   this.hitpoints = hitpoints;
   this.hungry = false;
@@ -13,14 +14,20 @@ const DigitalPet = function (name = "Unnamed", strength = 10, hitpoints = 100, n
 DigitalPet.prototype.attack = function (defender) {
   if (this.hitpoints > 0) {
     this.hungry = true;
-    let damage = Math.floor((Math.random() * this.strength) + 1);
-    defender.hitpoints -= damage;
-    console.log(`${this.name} attacks ${defender.name} for ${damage} points!`);
+    let attack = Math.floor((Math.random() * 20) + 1) + this.strength;
+    if (attack <= defender.armorClass) {
+      console.log(`${this.name} misses!`);
+    }
+    else {
+      let damage = Math.floor((Math.random() * this.strength) + 1);
+      defender.hitpoints -= damage;
+      console.log(`${this.name} attacks ${defender.name} for ${damage} points!`);
 
-    if (defender.hitpoints <= 0) {
-    console.log("\n-------------\n");
-    console.log(`${defender.name} has been defeated!\n`);
-    this.levelUp();
+      if (defender.hitpoints <= 0) {
+        console.log("\n-------------\n");
+        console.log(`${defender.name} has been defeated!\n`);
+        this.levelUp();
+      }
     }
   }
 };
@@ -92,8 +99,9 @@ DigitalPet.prototype.sleep = function () {
 DigitalPet.prototype.stats = function () {
   console.log(`Name:\t${this.name}`);
   console.log(`Age:\t${this.age}`);
-  console.log(`Str:\t${this.strength}`);
+  console.log(`Ac:\t${this.armorClass}`);
   console.log(`Hp:\t${this.hitpoints}/${this.maxHitpoints}`);
+  console.log(`Str:\t${this.strength}`);
   console.log(`State:${this.bored ? "\tBored" : ""}${this.hungry ? "\tHungry" : ""}${this.sleepy ? "\tSleepy" : ""}${this.hitpoints <= 0 ? "\tDefeated" : ""}\n`);
 };
 
