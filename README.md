@@ -2,7 +2,7 @@
 Take care of digital pets and battle them against each other.
 
 Play the latest version using:
-node test
+node main
 
 ## Technologies Used
 - Javascript
