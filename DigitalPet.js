@@ -21,7 +21,7 @@ DigitalPet.prototype.attack = function (defender) {
     else {
       let damage = Math.floor((Math.random() * this.strength) + 1);
       defender.hitpoints -= damage;
-      console.log(`${this.name} attacks ${defender.name} for ${damage} points!`);
+      console.log(`${this.name} attacks ${defender.name} for ${damage} point${damage > 1 ? "s" : ""}!`);
 
       if (defender.hitpoints <= 0) {
         console.log("\n-------------\n");
