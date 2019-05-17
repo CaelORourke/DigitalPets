@@ -13,11 +13,26 @@ rl.prompt();
 
 rl.on("line", (line) => {
     switch (line.trim()) {
+        case "battle":
+            Game.battle();
+            break;
         case "exit":
             rl.close();
             break;
+        case "feed":
+            Game.feed();
+            break;
         case "help":
             Game.help();
+            break;
+        case "play":
+            Game.play();
+            break;
+        case "sleep":
+            Game.sleep();
+            break;
+        case "stats":
+            Game.stats();
             break;
         default:
             Game.takeTurn();

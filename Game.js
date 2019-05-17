@@ -10,11 +10,23 @@ const Game = {
         playerOne.stats();
         playerTwo.stats();
     },
+    feed: function() {
+        playerOne.feed();
+    },
     fluff: function() {
         playerOne.play();
         playerOne.play();
         playerOne.feed();
         playerOne.sleep();
+    },
+    play: function() {
+        playerOne.play();
+    },
+    sleep: function() {
+        playerOne.sleep();
+    },
+    stats: function() {
+        playerOne.stats();
     },
     help: function() {
         console.log(`\nEnter a command:
@@ -24,7 +36,8 @@ const Game = {
     feed\t=>\tfeed your pet
     help\t=>\tget a list of commands
     play\t=>\tplay with your pet
-    sleep\t=>\ttell your pet to sleep\n`)
+    sleep\t=>\ttell your pet to sleep
+    stats\t=>\tview your pet's stats\n`)
     },
     takeTurn: function() {
         if (playerOne.isAlive() && playerTwo.isAlive()) {
